@@ -2,13 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoanController;
+use App\Http\Controllers\ItemController;
+use App\Models\Item;
+use App\Models\Loan;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 // route login
-Route::get('/login', [AuthController::class, 'showlogin']);
+Route::get('/login', [AuthController::class, 'showLogin']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
@@ -18,7 +22,7 @@ Route::get('/admin', function() {
     $dipinjam = Loan::where('status', 'dipinjam')->count();
     $kembali = Loan::where('status', 'kembali')->count();
 
-    return view('admin', compact('total_Barang', 'dipinjam', 'kembali'));
+    return view('admin', compact('totalBarang', 'dipinjam', 'kembali'));
 })->middleware('role:admin');
 
 Route::get('/petugas', function() {
@@ -46,3 +50,19 @@ Route::get('/rusak/{id}', [LoanController::class, 'rusak'])
 
 Route::get('/hilang/{id}', [LoanController::class, 'hilang'])
      ->middleware('role:admin,petugas');
+
+// route admin tambah, edit dan hapus
+Route::get('/items', [ItemController::class, 'index'])
+     ->middleware('role:admin');
+
+Route::post('/items/add', [ItemController::class, 'store'])
+     ->middleware('role:admin');
+
+Route::get('/items/delete/{id}', [ItemController::class, 'delete'])
+     ->middleware('role:admin');
+
+// route laporan admin
+Route::get('/report', function () {
+    $loans = App\Models\Loan::with(['item', 'user'])->get();
+    return view('report', compact('loans'));
+})->middleware('role:admin');
