@@ -39,10 +39,10 @@ Route::post('/borrow', [LoanController::class, 'store'])
 
 // status 
 Route::get('/return/{id}', [LoanController::class, 'return'])
-     -middleware('role:admin,petugas');
+     ->middleware('role:admin,petugas');
 
 Route::get('/rusak/{id}', [LoanController::class, 'rusak'])
-     -middleware('role:admin,petugas');
+     ->middleware('role:admin,petugas');
 
 Route::get('/hilang/{id}', [LoanController::class, 'hilang'])
-     -middleware('role:admin,petugas');
+     ->middleware('role:admin,petugas');
