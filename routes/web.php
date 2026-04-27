@@ -66,3 +66,7 @@ Route::get('/report', function () {
     $loans = App\Models\Loan::with(['item', 'user'])->get();
     return view('report', compact('loans'));
 })->middleware('role:admin');
+
+// register siswa
+Route::get('/register', [AuthController::class, 'showRegister']);
+Route::post('/register', [AuthController::class, 'register']);

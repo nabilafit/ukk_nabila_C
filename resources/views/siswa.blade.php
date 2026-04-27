@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar navbar-dark bg-info">
     <div class="container-fluid">
         <span class="navbar-brand">Dashboard Peminjaman Perpustakaan Digital Siswa</span>
         <a href="/logout" class="btn btn-danger btn-sm">Logout</a>

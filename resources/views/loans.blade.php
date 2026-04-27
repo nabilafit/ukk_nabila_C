@@ -60,7 +60,7 @@
                     </select>
                 </div>
 
-                <button class="btn btn-success">Pinjam</button>
+                <button class="btn btn-secondary">Pinjam</button>
             </form>
         </div>
     </div>

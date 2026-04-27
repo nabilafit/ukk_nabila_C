@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-primary">
+<nav class="navbar navbar-dark bg-info">
     <div class="container-fluid">
         <span class="navbar-brand">DASHBOARD PETUGAS PERPUSTAKAAN DIGITAL</span>
         <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
@@ -19,7 +19,7 @@
     <div class="card mt-3">
         <div class="card-body text-center">
             <h5>Kelola Peminjaman</h5>
-            <a href="/loans" class="btn btn-success">Masuk</a>
+            <a href="/loans" class="btn btn-light">Masuk</a>
         </div>
     </div>
 </div>

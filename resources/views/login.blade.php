@@ -23,6 +23,8 @@
 
             <button class="btn btn-primary w-100">Login</button>
         </form>
+
+        <a href="/register" class="d-block text-center mt-2">Belum punya akun? Register</a>
     </div>
 </div>
 

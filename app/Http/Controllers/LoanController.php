@@ -50,8 +50,8 @@ class LoanController extends Controller
         }
 
         Loan::create([
-            'user_id' => $user_id,
-            'item_id' => $item_id,
+            'user_id' => $user->id,
+            'item_id' => $item->id,
             'nama_peminjam' => $user->name,
             'borrow_date' => now(),
             'due_date' => now()->addDays(3),

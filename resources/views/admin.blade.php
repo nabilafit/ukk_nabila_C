@@ -15,7 +15,7 @@
 
 <div class="container mt-4">
 
-    <h3>Selamat Datang di Dashboard Admin {{ session('name') }}</h3>
+    <h3>Selamat Datang di Dashboard {{ session('name') }}</h3>
 
     <div class="row mt-4">
 
@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card bg-warning text-white text-center">
+            <div class="card bg-secondary text-white text-center">
                 <div class="card-body">
                     <h5>Sedang Dipinjam</h5>
                     <h2>{{ $dipinjam }}</h2>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card bg-success text-white text-center">
+            <div class="card bg-info text-white text-center">
                 <div class="card-body">
                     <h5>Sudah Kembali</h5>
                     <h2>{{ $kembali }}</h2>
@@ -64,7 +64,7 @@
             <div class="card shadow">
                 <div class="card-body text-center">
                     <h5>Data Peminjaman</h5>
-                    <a href="/loans" class="btn btn-success">Lihat</a>
+                    <a href="/loans" class="btn btn-secondary">Lihat</a>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
         <div class="card shadow">
             <div class="card-body text-center">
                 <h5>Laporan</h5>
-                <a href="/report" class="btn btn-dark">Lihat</a>
+                <a href="/report" class="btn btn-info">Lihat</a>
             </div>
         </div>
     </div>
