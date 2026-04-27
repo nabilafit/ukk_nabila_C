@@ -29,3 +29,20 @@ Route::get('/siswa', function() {
     return view('siswa');
 })->middleware('role:siswa');
 
+// route loans, borrow, return
+Route::get('/loans', [LoanController::class, 'index'])
+     ->middleware('role:admin,petugas,siswa');
+
+// transaksi admin dan petugas 
+Route::post('/borrow', [LoanController::class, 'store'])
+     ->middleware('role:admin,petugas,siswa');
+
+// status 
+Route::get('/return/{id}', [LoanController::class, 'return'])
+     -middleware('role:admin,petugas');
+
+Route::get('/rusak/{id}', [LoanController::class, 'rusak'])
+     -middleware('role:admin,petugas');
+
+Route::get('/hilang/{id}', [LoanController::class, 'hilang'])
+     -middleware('role:admin,petugas');
