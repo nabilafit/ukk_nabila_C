@@ -17,66 +17,73 @@
 
     <h3>Selamat Datang di Dashboard {{ session('name') }}</h3>
 
+    {{-- STATISTIK --}}
     <div class="row mt-4">
 
-        <div class="col-md-4">
-            <div class="card bg-primary text-white text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card bg-primary text-white text-center shadow">
                 <div class="card-body">
-                    <h5>Total Barang</h5>
-                    <h2>{{ $totalBarang }}</h2>
+                    <h5>Total Buku</h5>
+                    <h2>{{ $totalBarang ?? 0 }}</h2>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card bg-secondary text-white text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card bg-secondary text-white text-center shadow">
                 <div class="card-body">
                     <h5>Sedang Dipinjam</h5>
-                    <h2>{{ $dipinjam }}</h2>
+                    <h2>{{ $dipinjam ?? 0 }}</h2>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card bg-info text-white text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card bg-info text-white text-center shadow">
                 <div class="card-body">
                     <h5>Sudah Kembali</h5>
-                    <h2>{{ $kembali }}</h2>
+                    <h2>{{ $kembali ?? 0 }}</h2>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- menu bawah -->
+    {{-- MENU --}}
     <div class="row mt-4">
 
-        <div class="col-md-4">
-            <div class="card shadow">
+        {{-- KELOLA BUKU --}}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow h-100">
                 <div class="card-body text-center">
-                    <h5>Kelola Barang</h5>
+                    <h5>Kelola Buku</h5>
+                    <p class="text-muted">Tambah, edit, hapus buku</p>
                     <a href="/items" class="btn btn-primary">Masuk</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card shadow">
+        {{-- DATA PEMINJAMAN --}}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow h-100">
                 <div class="card-body text-center">
                     <h5>Data Peminjaman</h5>
+                    <p class="text-muted">Kelola semua transaksi</p>
                     <a href="/loans" class="btn btn-secondary">Lihat</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-        <div class="card shadow">
-            <div class="card-body text-center">
-                <h5>Laporan</h5>
-                <a href="/report" class="btn btn-info">Lihat</a>
+        {{-- LAPORAN --}}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+                    <h5>Laporan</h5>
+                    <p class="text-muted">Rekap peminjaman</p>
+                    <a href="/report" class="btn btn-info">Lihat</a>
+                </div>
             </div>
         </div>
-    </div>
 
     </div>
 

@@ -10,6 +10,16 @@
     <div class="card p-4 shadow" style="width: 350px;">
         <h4 class="text-center mb-3">Register</h4>
 
+        @if($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach($errors->all() as $err)
+                <li>{{ $err }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
         <form method="POST" action="/register">
             @csrf
 

@@ -12,14 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('loans', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('item_id');
-            $table->string('nama_peminjam');
-            $table->date('borrow_date');
-            $table->date('return_date')->nullable();
-            $table->date('due_date')->nullable();
-            $table->enum('status', ['dipinjam', 'kembali', 'hilang', 'rusak'])->default('dipinjam');
+             $table->id();
+             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+             $table->foreignId('item_id')->constrained()->cascadeOnDelete();
+
+             $table->string('nama_peminjam');
+             $table->integer('jumlah')->default(1);
+
+             $table->date('borrow_date');
+             $table->date('due_date')->nullable();
+             $table->date('return_date')->nullable();
+
+             $table->enum('status', ['dipinjam', 'kembali', 'hilang', 'rusak'])->default('dipinjam');
+ 
+     // PAYMENT SYSTEM
+             $table->integer('denda')->default(0);
+             $table->boolean('is_paid')->default(false);
+             $table->timestamp('paid_at')->nullable();
+
             $table->timestamps();
         });
     }

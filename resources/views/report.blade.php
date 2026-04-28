@@ -8,14 +8,14 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <span class="navbar-brand">Laporan Peminjaman</span>
+        <span class="navbar-brand">Laporan Peminjaman Buku</span>
         <a href="/admin" class="btn btn-light btn-sm">Kembali</a>
     </div>
 </nav>
 
 <div class="container mt-4">
 
-    <h3 class="mb-3">Data Peminjaman</h3>
+    <h3 class="mb-3">Data Peminjaman Buku</h3>
 
     <div class="card shadow">
         <div class="card-body">
@@ -24,7 +24,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th>Nama Barang</th>
+                        <th>Nama Buku</th>
                         <th>Peminjam</th>
                         <th>Tanggal Pinjam</th>
                         <th>Status</th>
@@ -39,7 +39,7 @@
 
         <td>{{ $loan->item->name ?? '-' }}</td>
 
-        <td>{{ $loan->user->name ?? '-' }}</td>
+        <td>{{ $loan->nama_peminjam ?? '-' }}</td>
 
         <td>{{ $loan->borrow_date ?? '-' }}</td>
 
@@ -63,12 +63,9 @@
     </tr>
     @endforeach
 </tbody>
-
             </table>
-
         </div>
     </div>
-
 </div>
 
 </body>
